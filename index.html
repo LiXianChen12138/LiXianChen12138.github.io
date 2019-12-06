@@ -143,6 +143,141 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-和Java的异同" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/06/C-%E5%92%8CJava%E7%9A%84%E5%BC%82%E5%90%8C/">C#和Java的异同</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/06/C-%E5%92%8CJava%E7%9A%84%E5%BC%82%E5%90%8C/" class="archive-article-date">
+  	<time datetime="2019-12-06T04:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前言：最近的一个项目老师要求用WPF完成，而在此之间接触过一些Android开发，对比后发现WPF使用的C#和Android目前使用的Java整体而言极其相似，只是在一些语法上有着一些不相同的地方，在开发模式上也有很多相似的地方，以下是总结的关于Java和C#的异同。</p>
+<ul>
+<li><strong>相同点</strong></li>
+</ul>
+<ol>
+<li>同样都是面向对象的程序设计，其在继承、封装、多态上的思想都是一样的。</li>
+<li>相对于C++的内存回收机制，C#和Java都有自动内存回收机制，并取消了指针。</li>
+<li>所有的对象都需要通过<code>new</code>创建。</li>
+<li>对于数组和集合有许多相似的默认方法。</li>
+</ol>
+<ul>
+<li><strong>不同点</strong></li>
+</ul>
+<ol>
+<li><p><strong>包的封装和导入</strong><br>Java: 封装<code>package</code>导入<code>import</code><br>C#: 封装<code>namespace</code>导入<code>using</code></p>
+</li>
+<li><p><strong>继承</strong><br>Java：继承一个类使用<code>extend</code>继承一个接口使用<code>implement</code><br>C#：无论继承类或者接口都使用<code>:</code>继承多个用逗号隔开<br><strong>无论是C#还是Java都是只能继承一个父类，但是能同时继承多个接口</strong>，类和接口的关系就好比一种类别和一种功能，比如彼得·帕克是蜘蛛侠，同时可以拥有吐丝爬墙和“汤姆一激灵”等的能力，但他不能同时是钢铁侠和蜘蛛侠。</p>
+</li>
+<li><p><strong>属性</strong><br>Java：成员变量的属性通过<code>Setter()</code>和<code>Getter()</code>两个方法来实现对成员变量的保护和操作，现在大部分IDE都会通过一些插件快捷键实现快速对这两个方法的插入<br>C#：对Public成员变量的定义只要通过<code>set;get;</code>，可以更方便的对属性进行定义同时对语法也更友好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    private in age;</span><br><span class="line">    public void SetAge(int age)&#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int GetAge()&#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    public int age &#123;set;get;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>数组声明</strong><br>在Java中可以使用<code>int x[] = new int[20]</code> 和 <code>int[] x = new int[20]</code>在C#中第一种是不合法的，但是在日常编写中推荐Java也使用第二种语法。</p>
+</li>
+<li><p><strong>for和foreach</strong><br>Java对于集合的遍历方法为<code>for</code>，C#为<code>foreach</code>，但两者在使用上是类似的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line"></span><br><span class="line">for(String str : list)&#123;</span><br><span class="line">    System.out.println(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C#</span><br><span class="line"></span><br><span class="line">foreach(string str in list)&#123;</span><br><span class="line">    System.Console.WriteLine(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>集合</strong><br>Java关于集合的操作的内置功能不如C#丰富，并且C#的语法在有些情况下更加简洁方便</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Java</span><br><span class="line"></span><br><span class="line">List&lt;Person&gt; persons = new ArrayList&lt;Person&gt;();</span><br><span class="line">Person p1 = new Person();</span><br><span class="line">persons.Add(p1);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C#</span><br><span class="line"></span><br><span class="line">List persons  = new List&lt;Person&gt;();</span><br><span class="line">persons.Add(new Person() &#123;age = 12&#125; );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>访问控制修饰符</strong></p>
+</li>
+</ol>
+<p>Java</p>
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="center">范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">private</td>
+<td align="center">仅在同一类中可见</td>
+</tr>
+<tr>
+<td align="left">public</td>
+<td align="center">所有类可见</td>
+</tr>
+<tr>
+<td align="left">protect</td>
+<td align="center">仅能由同一个包中的类或任何子类可见</td>
+</tr>
+<tr>
+<td align="left">default</td>
+<td align="center">仅在同一包中可见</td>
+</tr>
+</tbody></table>
+<p>C#<br>基本和Java一一对用，多出一个<code>internal</code>当前程序集内部可见</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Java、C#、WPF、Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/06/C-%E5%92%8CJava%E7%9A%84%E5%BC%82%E5%90%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据报在传输过程中IP和MAC地址的变化过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -486,6 +621,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Java、C#、WPF、Android</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">计算机网络</a>
